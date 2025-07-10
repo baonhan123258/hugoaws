@@ -1,6 +1,6 @@
 ---
 title : "Triển khai Website Bán Điện Thoại PHP với AWS Elastic Beanstalk"
-date: 2025-06-18
+date:  2025-06-18
 weight : 1 
 chapter : false
 ---

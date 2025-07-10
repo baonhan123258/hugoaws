@@ -1,7 +1,7 @@
 ---
 title : "Giới thiệu"
-date: 2025-07-10
-weight : 1 
+date: 2025-06-18
+weight : 1
 chapter : false
 pre : " <b> 1. </b> "
 ---

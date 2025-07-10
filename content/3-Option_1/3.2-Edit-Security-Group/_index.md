@@ -1,6 +1,6 @@
 ---
 title : "Chỉnh sửa Security Group – Cấu hình Inbound Rules"
-date: 2025-7-10
+date: 2025-06-18
 weight : 2
 chapter : false
 pre : " <b> 3.2. </b> "

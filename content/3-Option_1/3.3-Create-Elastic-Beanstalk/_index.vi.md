@@ -1,6 +1,6 @@
 ---
 title : "Triển khai (Deploy) Dự án PHP lên Elastic Beanstalk"
-date: 2025-06-18
+date:: 2025-06-18
 weight : 3
 chapter : false
 pre : " <b> 3.3. </b> "

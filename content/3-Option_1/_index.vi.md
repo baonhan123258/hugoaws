@@ -1,7 +1,7 @@
 ---
 title : "OPTION 1: Website Bán Điện Thoại PHP  với Elastic Beanstalk"
-date: 2025-06-18
-weight : 3 
+date:: 2025-06-18
+weight : 3
 chapter : false
 pre : " <b> 3. </b> "
 ---
