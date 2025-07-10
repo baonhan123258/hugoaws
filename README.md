@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AWS Elastic Beanstalk Web Bán Điện Thoại PHP Workshop
 
 [![AWS](https://img.shields.io/badge/AWS-Elastic%20Beanstalk-orange.svg)](https://aws.amazon.com/elasticbeanstalk/)
@@ -168,3 +169,6 @@ Project này theo [MIT License](LICENSE)
 ---
 
 **⭐ Star repo nếu thấy hữu ích! – Chia sẻ cho bạn bè, đồng nghiệp quan tâm cloud/web dev!**
+=======
+# hugoaws
+>>>>>>> ab10dd5e31a58143b146d2e224e3a4ee0ef2244d
