@@ -6,48 +6,52 @@ chapter : false
 pre : " <b> 2. </b> "
 ---
 
-## Tổng quan Chuẩn bị
+## Preparation Overview
 
-Để hoàn thành workshop này, bạn cần chuẩn bị đầy đủ tài khoản **AWS**, môi trường làm việc, và kiến thức nền tảng phù hợp. Mục này sẽ hướng dẫn chi tiết từng bước chuẩn bị.
+To complete this workshop, you’ll need a valid **AWS account**, a working environment, and some foundational knowledge. This section will guide you through the necessary preparations step by step.
 
-## 1. Tài khoản AWS
+## 1. AWS Account
 
-### Yêu cầu tài khoản:
-- **Tài khoản AWS** đã xác thực (nên có Free Tier)
-- **Thẻ tín dụng** dùng xác thực (không bị trừ phí nếu dùng trong Free Tier)
-- **Email hợp lệ** để nhận thông báo từ **AWS**
+### Account Requirements:
+- A **verified AWS account** (preferably with Free Tier eligibility)
+- A **credit/debit card** for account verification (no charges if staying within the Free Tier)
+- A **valid email address** to receive notifications from **AWS**
 
-### Miễn phí Free Tier:
-Workshop này thiết kế để chạy **trong Free Tier** (nếu dùng đúng hướng dẫn):
+### Free Tier Benefits:
+This workshop is designed to run **within the Free Tier** (if you follow the instructions correctly):
 
-| Dịch vụ               | Free Tier                  | Dùng cho workshop         |
-|-----------------------|---------------------------|---------------------------|
-| **Elastic Beanstalk** | 750 giờ/tháng EC2 t2.micro| ~1-2 giờ                  |
-| **S3**                | 5GB storage, 20,000 GET   | < 500MB                   |
-| **RDS**               | 750 giờ/tháng db.t2.micro | < 1 giờ (test)            |
-| **CloudWatch**        | 10 custom metrics, 5GB logs| < 1GB logs               |
-| **Route53**           | Không free, chỉ phí domain (nếu dùng) | Tùy chọn         |
+| Service              | Free Tier Offering             | Workshop Usage            |
+|----------------------|-------------------------------|---------------------------|
+| **Elastic Beanstalk**| 750 hrs/month of EC2 t2.micro  | ~1–2 hours                |
+| **S3**               | 5GB storage, 20,000 GET reqs   | < 500MB                   |
+| **RDS**              | 750 hrs/month of db.t2.micro   | < 1 hour (for testing)    |
+| **CloudWatch**       | 10 custom metrics, 5GB logs    | < 1GB logs                |
+| **Route 53**         | No free tier, domain cost only (if used) | Optional         |
 
 {{% notice info %}}
-**Dự kiến chi phí**: $0 nếu dùng Free Tier, < $1 nếu vượt giới hạn hoặc dùng domain riêng.
+**Estimated Cost**: $0 if you stay within the Free Tier; < $1 if limits are exceeded or if a custom domain is used.
 {{% /notice %}}
 
-### Phân quyền IAM
+### IAM Permissions
 
-Nên tạo user riêng với quyền sau:
+It’s recommended to create a separate IAM user with the following permissions:
 
-#### **Quyền tối thiểu:**
+#### **Minimal Required Permissions:**
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
-    { "Effect": "Allow", "Action": [
+    {
+      "Effect": "Allow",
+      "Action": [
         "elasticbeanstalk:*",
         "ec2:*",
         "s3:*",
         "rds:*",
         "cloudwatch:*",
         "iam:PassRole"
-    ], "Resource": "*" }
+      ],
+      "Resource": "*"
+    }
   ]
 }

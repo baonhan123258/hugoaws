@@ -1,13 +1,13 @@
 ## What is AWS Elastic Beanstalk?
 
-Elastic Beanstalk là một dịch vụ PaaS của AWS giúp triển khai ứng dụng PHP (cũng như Node.js, Python, Java...) lên cloud một cách dễ dàng mà không phải quản lý hạ tầng server.
+Elastic Beanstalk is an AWS PaaS (Platform as a Service) that simplifies the deployment of PHP applications (as well as Node.js, Python, Java, etc.) to the cloud **without the need to manage server infrastructure**.
 
 ### Key Features:
-- Không cần quản lý server
-- Tự động scaling
-- Tích hợp monitoring
-- Hỗ trợ nhiều môi trường
-- Dễ dàng rollback
+- No server management required  
+- Automatic scaling  
+- Integrated monitoring  
+- Supports multiple environments  
+- Easy rollback capabilities  
 
 ---
 
@@ -16,18 +16,16 @@ Elastic Beanstalk là một dịch vụ PaaS của AWS giúp triển khai ứng 
 ### Main Components:
 
 #### 1. Elastic Beanstalk Environment
-- Tự động tạo EC2, Load Balancer, Auto Scaling, Security Groups
-- Hỗ trợ đa nền tảng
+- Automatically provisions EC2, Load Balancer, Auto Scaling, and Security Groups  
+- Supports multiple platforms (PHP, Node.js, Python, etc.)
 
 #### 2. Amazon S3
-- Lưu trữ source code khi deploy
-- Lưu trữ hình ảnh sản phẩm, tài nguyên tĩnh
+- Stores application source code during deployment  
+- Can also store static assets like product images or uploads
 
-#### 3. Amazon RDS (khuyến nghị cho database production)
-- Quản lý database MySQL/PostgreSQL
-- Dễ backup, scale
+#### 3. Amazon RDS (recommended for production databases)
+- Manages MySQL/PostgreSQL databases  
+- Easy to back up and scale  
 
 #### 4. Amazon CloudWatch
-- Giám sát log, metric, cảnh báo
-
----
+- Monitors logs, metrics, and alerts  

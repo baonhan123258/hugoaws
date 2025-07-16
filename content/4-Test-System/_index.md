@@ -6,50 +6,52 @@ chapter : false
 pre : " <b> 5. </b> "
 ---
 
-# Hướng dẫn kiểm thử hệ thống website bán điện thoại PHP trên Elastic Beanstalk
+# Guide to Testing Your PHP Phone Store Website on Elastic Beanstalk
 
-## 1. Truy cập website
+## 1. Access the Website
 
-- Mở đường dẫn **Environment URL** mà Elastic Beanstalk cấp (hoặc domain riêng nếu đã gắn).
-- Kiểm tra xem website có hiển thị giao diện bán điện thoại, truy cập ổn định, tốc độ tải nhanh.
+- Open the **Environment URL** provided by Elastic Beanstalk (or your custom domain if configured).
+- Check if the site displays the phone store interface correctly, loads quickly, and operates smoothly.
 
-## 2. Kiểm tra chức năng upload ảnh sản phẩm
+## 2. Test Product Image Upload Functionality
 
-- Đăng nhập admin (nếu có) hoặc vào trang thêm sản phẩm mới.
-- Upload thử một file ảnh đại diện cho sản phẩm.
-- Kiểm tra ảnh hiển thị đúng trên website (nếu có tích hợp S3/CloudFront, link ảnh phải ra domain CloudFront/S3).
+- Log in to the admin panel (if available) or navigate to the add-new-product page.
+- Upload a sample product image.
+- Verify that the image displays correctly on the website.
+  - If using S3/CloudFront for storage, the image link should point to a CloudFront or S3 domain.
 
-## 3. Kiểm tra database
+## 3. Verify Database Integration
 
-- Thêm/sửa/xóa sản phẩm hoặc đơn hàng từ website.
-- Vào RDS (qua công cụ quản trị MySQL như phpMyAdmin, Adminer, hoặc DBeaver...) kiểm tra dữ liệu có thay đổi đúng trong bảng tương ứng.
-- Nếu web báo lỗi kết nối database, kiểm tra lại Security Group và cấu hình `.env`/config PHP.
+- Add/edit/delete a product or order through the website.
+- Use a database management tool (e.g., phpMyAdmin, Adminer, DBeaver) to connect to RDS and confirm that the data is reflected correctly in the database tables.
+- If the site reports a database connection error, double-check the Security Group rules and PHP configuration (`.env`, config file, etc.).
 
-## 4. Kiểm tra domain và SSL
+## 4. Check Domain and SSL
 
-- Truy cập website qua domain riêng (ví dụ: `https://yourshop.com`).
-- Đảm bảo trình duyệt hiển thị ổ khóa xanh (HTTPS) và không cảnh báo bảo mật.
+- Access your website using your custom domain (e.g., `https://yourshop.com`).
+- Ensure the browser displays a secure padlock icon (HTTPS) with no security warnings.
 
-## 5. Kiểm tra tốc độ tải ảnh/file (nếu dùng S3/CloudFront)
+## 5. Test Image/File Loading Speed (if using S3/CloudFront)
 
-- Duyệt trang chi tiết sản phẩm, kiểm tra các link ảnh sản phẩm có dạng CDN/S3 không.
-- Test tốc độ tải ảnh từ các vị trí khác nhau (nên rất nhanh nếu dùng CloudFront).
+- Visit a product detail page and check whether image URLs are served from CDN/S3.
+- Test image loading speed from different locations — it should be fast if CloudFront is properly configured.
 
-## 6. Xem log và giám sát
+## 6. View Logs and Monitor the Application
 
-- Truy cập Elastic Beanstalk → **Logs** → tải về và kiểm tra file error/access log để phát hiện lỗi.
-- Vào CloudWatch kiểm tra metric (CPU, memory, HTTP error, log…).
-- Đảm bảo website không có lỗi nghiêm trọng hoặc cảnh báo health ở môi trường Beanstalk.
+- Go to Elastic Beanstalk → **Logs** → download and review error/access logs for any issues.
+- Open CloudWatch to monitor metrics like CPU usage, memory, HTTP errors, and logs.
+- Ensure there are no critical errors and the Elastic Beanstalk environment health is **green**.
 
-## 7. Kiểm tra cảnh báo (Alarm) nếu đã cấu hình
+## 7. Test Alerts (if CloudWatch Alarms are configured)
 
-- Thử tạo nhiều lượt truy cập hoặc gây lỗi để xem CloudWatch Alarm có gửi email/cảnh báo không.
-
----
-
-> **Kết quả mong đợi:**  
-> - Website truy cập nhanh, bảo mật HTTPS, upload được ảnh, dữ liệu lưu vào DB, hình ảnh tối ưu CDN, log sạch lỗi, domain riêng hoạt động tốt!
+- Simulate high traffic or application errors to trigger CloudWatch alarms.
+- Verify if alerts are sent via email or other configured channels.
 
 ---
 
-**Sau khi kiểm thử hoàn tất, bạn đã sẵn sàng nghiệm thu website bán điện thoại PHP chạy thực tế trên AWS!**
+> **Expected Outcome:**  
+> - Website loads fast, uses HTTPS, supports image uploads, stores data in the DB, delivers images via CDN, logs are clean, and custom domain is working properly.
+
+---
+
+**Once all tests are complete, your PHP phone store website is ready to go live on AWS!**

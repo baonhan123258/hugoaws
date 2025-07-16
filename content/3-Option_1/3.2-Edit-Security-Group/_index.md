@@ -1,68 +1,68 @@
 ---
-title : "Chỉnh sửa Security Group – Cấu hình Inbound Rules"
+title : "Edit Security Group – Configure Inbound Rules"
 date: 2025-06-18
 weight : 2
 chapter : false
 pre : " <b> 3.2. </b> "
 ---
 
-## Các bước mở cổng truy cập (Edit Inbound Rules) cho Security Group trên AWS
+## Steps to Open Access Ports (Edit Inbound Rules) for a Security Group on AWS
 
-### 1. Truy cập dịch vụ EC2
+### 1. Access the EC2 Service
 
-- Đăng nhập **AWS Console**, tìm kiếm **EC2** và chọn dịch vụ **EC2**.
+- Log in to the **AWS Console**, search for **EC2**, and select the **EC2** service.  
 ![Picture8](/images/3.2/image8.png)
 
 ---
 
-### 2. Truy cập danh sách Security Groups
+### 2. Go to the Security Groups List
 
-- Ở menu bên trái, kéo xuống mục **Network & Security** → nhấn **Security Groups**.
+- In the left-hand menu, scroll down to **Network & Security** → click **Security Groups**.  
 ![Picture9](/images/3.2/image9.png)
 
 ---
 
-### 3. Chọn Security Group cần chỉnh
+### 3. Select the Security Group to Modify
 
-- Tìm Security Group mà bạn muốn cấu hình (ví dụ: của EC2, Elastic Beanstalk, hoặc RDS).
-- Click vào tên Security Group để xem chi tiết.
+- Find the Security Group you want to configure (e.g., associated with EC2, Elastic Beanstalk, or RDS).
+- Click on the Security Group name to view its details.  
 ![Picture10](/images/3.2/image10.png)
 
 ---
 
-### 4. Chỉnh sửa Inbound Rules
+### 4. Edit Inbound Rules
 
-- Chuyển sang tab **Inbound rules** (hoặc “Quy tắc vào”).
-- Nhấn **Edit inbound rules** để thêm hoặc sửa các rule cho phép kết nối vào.
+- Switch to the **Inbound rules** tab.
+- Click **Edit inbound rules** to add or modify rules that allow inbound connections.  
 ![Picture12](/images/3.2/image12.png)
 
 ---
 
-#### Thiết lập các rule mới (ví dụ cho RDS MySQL):
+#### Example: Add a New Rule (e.g., for RDS MySQL)
 
-- **Type**: Chọn **MySQL/Aurora** (hoặc port 3306), hoặc nhập thủ công port bạn cần mở (ví dụ 80, 443, 22…)
+- **Type**: Select **MySQL/Aurora** (or port 3306), or manually enter the port you want to open (e.g., 80, 443, 22…)
 - **Protocol**: TCP
-- **Port range**: 3306 (hoặc cổng dịch vụ khác, như 5432 cho PostgreSQL)
-- **Source**: 
-  - Nếu muốn cho phép mọi IP: nhập `0.0.0.0/0` (**CHỈ nên dùng khi test, không khuyến nghị cho production!**)
-  - Nếu chỉ cho phép Beanstalk/EC2: nhập Security Group ID hoặc IP cụ thể
+- **Port range**: 3306 (or another service port, like 5432 for PostgreSQL)
+- **Source**:
+  - To allow all IPs: enter `0.0.0.0/0` (**ONLY for testing purposes; not recommended in production!**)
+  - To restrict access to Beanstalk/EC2 only: enter a specific Security Group ID or trusted IP range
 
-![Picture13](/images/3.2/image13.png)
+![Picture13](/images/3.2/image13.png)  
 ![Picture14](/images/3.2/image14.png)
 
 ---
-s
-### 5. Lưu lại rule vừa thêm
 
-- Sau khi thêm/sửa rule, kéo xuống cuối trang và nhấn **Save rules** để lưu cấu hình.
+### 5. Save the New Rule
+
+- After adding/editing the rules, scroll down and click **Save rules** to apply the changes.  
 ![Picture16](/images/3.2/image16.png)
 
 ---
 
-> **Lưu ý quan trọng:**  
-> - Chỉ nên mở cổng cho đúng IP hoặc Security Group, tránh mở toàn bộ Internet trừ khi chỉ test/lab và nhớ xóa sau khi thực hành!
-> - Với RDS, nên để source là Security Group của EC2/Elastic Beanstalk để tăng bảo mật.
+> **Important Notes:**  
+> - Only open ports to trusted IPs or Security Groups. Avoid using `0.0.0.0/0` unless for testing/lab purposes—and remember to remove it afterward!
+> - For RDS, it's recommended to set the source as the Security Group of EC2 or Elastic Beanstalk to enhance security.
 
 ---
 
-**Bạn đã cấu hình xong Inbound Rules cho Security Group! Sẵn sàng kết nối ứng dụng tới database hoặc các dịch vụ AWS khác.**
+**You’ve successfully configured Inbound Rules for the Security Group! You're now ready to connect your application to the database or other AWS services.**

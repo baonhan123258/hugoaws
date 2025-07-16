@@ -1,80 +1,80 @@
 ---
-title : "Tạo Elastic Beanstalk và Upload File PHP"
-date:  2025-06-18
+title : "Create Elastic Beanstalk and Upload PHP Files"
+date: 2025-06-18
 weight : 3
 chapter : false
 pre : " <b> 3.3. </b> "
 ---
 
-## Hướng dẫn từng bước tạo Elastic Beanstalk và upload (deploy) dự án PHP
+## Step-by-step Guide to Create Elastic Beanstalk and Deploy a PHP Project
 
 ---
 
-### 1. Truy cập dịch vụ Elastic Beanstalk
+### 1. Access the Elastic Beanstalk Service
 
-- Trên **AWS Console**, nhập **Elastic Beanstalk** vào ô tìm kiếm và chọn **Elastic Beanstalk**.
-- Đảm bảo Region vẫn là **ap-southeast-1**.
-![Hình: Truy cập Elastic Beanstalk](/images/3.3/image21.png)
-
----
-
-### 2. Tạo Application mới
-
-- Nhấn **Create Application**.
-![Hình: Nhấn Create Application](/images/3.3/image22.png)
-
-- **Application name**: Nhập tên ứng dụng, ví dụ `ban-dien-thoai-php`.
-- **Platform**: Chọn **PHP**.
-- **Platform branch**: Chọn phiên bản PHP phù hợp (VD: PHP 8.1, PHP 8.2...).
-- **Application code**: Chọn **Upload your code**.
+- In the **AWS Console**, type **Elastic Beanstalk** in the search bar and select **Elastic Beanstalk**.
+- Make sure the Region is set to **ap-southeast-1**.  
+![Image: Access Elastic Beanstalk](/images/3.3/image21.png)
 
 ---
 
-### 3. Upload file dự án PHP (.zip)
+### 2. Create a New Application
 
-- Nhấn **Choose file** để upload file `.zip` chứa mã nguồn dự án PHP của bạn (hoặc chọn file từ S3 nếu đã upload trước).
-- File `.zip` nên đặt các file (ví dụ: `index.php`, `composer.json`, v.v...) ở thư mục gốc, **không bọc thêm một thư mục cha**.
-![Hình: Upload file zip dự án PHP](/images/3.3/image23.png)
+- Click **Create Application**.  
+![Image: Click Create Application](/images/3.3/image22.png)
 
----
-
-### 4. Cấu hình môi trường
-
-- **Environment name**: Đặt tên (ví dụ: `ban-dien-thoai-env`).
-- **Domain**: AWS tự động gợi ý domain (giữ mặc định hoặc chỉnh sửa nếu muốn).
-- **Instance type**: Chọn `t2.micro` hoặc nhỏ nhất cho tiết kiệm chi phí.
-- **Key pair**: Để trống nếu không SSH, hoặc chọn key nếu muốn SSH vào EC2 instance.
+- **Application name**: Enter a name, e.g., `ban-dien-thoai-php`.
+- **Platform**: Choose **PHP**.
+- **Platform branch**: Select the appropriate PHP version (e.g., PHP 8.1, PHP 8.2...).
+- **Application code**: Choose **Upload your code**.
 
 ---
 
-### 5. Tạo môi trường và deploy code
+### 3. Upload Your PHP Project (.zip)
 
-- Nhấn **Create environment** để bắt đầu quá trình deploy.
-![Hình: Tạo môi trường và deploy](/images/3.3/image24.png)
-- Chờ AWS khởi tạo môi trường (khoảng 5-10 phút). AWS sẽ tự động tạo EC2, Load Balancer, cài PHP và triển khai mã nguồn.
-
----
-
-### 6. Truy cập web sau khi deploy
-
-- Khi hoàn tất, bạn sẽ thấy **Environment URL** (VD: http://ban-dien-thoai-env.eba-xxxxxx.ap-southeast-1.elasticbeanstalk.com).
-- Click vào link này để truy cập website PHP vừa deploy.
-![Hình: Truy cập website Elastic Beanstalk](/images/3.3/image26.png)
+- Click **Choose file** to upload your `.zip` file containing the PHP source code (or select from S3 if already uploaded).
+- The `.zip` file should place your files (e.g., `index.php`, `composer.json`, etc.) directly in the root — **do not wrap them in an extra folder**.  
+![Image: Upload PHP zip file](/images/3.3/image23.png)
 
 ---
 
-### 7. Quản lý, cập nhật dự án (Deploy lại code mới)
+### 4. Configure the Environment
 
-- Vào tab **Application versions** trong ứng dụng Elastic Beanstalk.
-- Nhấn **Upload and deploy** để upload file `.zip` mới và deploy phiên bản mới nhất.
-- Dùng tính năng này mỗi khi cập nhật code cho website.
-
----
-
-> **Lưu ý:**  
-> - Nếu gặp lỗi khi deploy (502, 503, trắng trang), hãy kiểm tra lại cấu trúc file zip, file log tại tab **Logs**.
-> - Để cấu hình biến môi trường (database, API key...), vào **Configuration → Software** và thêm environment variables theo nhu cầu.
+- **Environment name**: Enter a name (e.g., `ban-dien-thoai-env`).
+- **Domain**: AWS will auto-suggest a domain (keep the default or edit it if desired).
+- **Instance type**: Choose `t2.micro` or the smallest available for cost efficiency.
+- **Key pair**: Leave empty if you don’t need SSH access, or choose a key pair if you want to connect to the EC2 instance.
 
 ---
 
-**Bạn đã hoàn thành việc tạo Elastic Beanstalk và deploy dự án PHP thành công! Hãy tiếp tục cấu hình Database, domain, hoặc các dịch vụ AWS khác nếu cần.**
+### 5. Create Environment and Deploy Code
+
+- Click **Create environment** to begin the deployment process.  
+![Image: Create environment and deploy](/images/3.3/image24.png)
+- Wait for AWS to provision the environment (about 5–10 minutes). It will automatically create EC2, a Load Balancer, install PHP, and deploy your source code.
+
+---
+
+### 6. Access the Website After Deployment
+
+- Once completed, you’ll see the **Environment URL** (e.g., http://ban-dien-thoai-env.eba-xxxxxx.ap-southeast-1.elasticbeanstalk.com).
+- Click this link to access your deployed PHP website.  
+![Image: Access deployed Elastic Beanstalk website](/images/3.3/image26.png)
+
+---
+
+### 7. Manage and Update Your Project (Re-deploy New Code)
+
+- Go to the **Application versions** tab in your Elastic Beanstalk application.
+- Click **Upload and deploy** to upload a new `.zip` file and deploy the latest version.
+- Use this feature every time you update your website's code.
+
+---
+
+> **Note:**  
+> - If you encounter deployment issues (502, 503, blank page), check your zip structure and logs under the **Logs** tab.
+> - To configure environment variables (e.g., for database, API keys), go to **Configuration → Software** and add them under *Environment properties*.
+
+---
+
+**You’ve successfully created an Elastic Beanstalk environment and deployed your PHP project! Continue configuring the database, domain, or other AWS services as needed.**

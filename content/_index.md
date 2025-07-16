@@ -1,38 +1,38 @@
 ---
-title : "Triển khai Website Bán Điện Thoại PHP với AWS Elastic Beanstalk"
+title : "Deploy a PHP Phone Store Website with AWS Elastic Beanstalk"
 date: 2025-06-18
 weight : 1 
 chapter : false
 ---
 
-# Workshop: Deploy Website Bán Điện Thoại PHP trên AWS Elastic Beanstalk
+# Workshop: Deploy a PHP Phone Store Website on AWS Elastic Beanstalk
 
-### Tổng quan
+### Overview
 
-Workshop này hướng dẫn bạn từng bước triển khai **website bán điện thoại viết bằng PHP** lên AWS, sử dụng các dịch vụ cloud thực tế nhất gồm Elastic Beanstalk, RDS, S3, CloudFront, Route 53, CloudWatch...  
-Bạn sẽ học cách chuẩn hóa code, upload source, cấu hình domain, SSL, tối ưu ảnh, giám sát log và tối ưu chi phí vận hành thực tế.
+This workshop will guide you step-by-step to **deploy a PHP-based phone store website** on AWS, using real-world cloud services such as Elastic Beanstalk, RDS, S3, CloudFront, Route 53, CloudWatch, and more.  
+You'll learn how to prepare your code, upload the source, configure custom domains and SSL, optimize images, monitor logs, and manage operational costs efficiently.
 
-Có 2 lộ trình thực hành:
+There are two learning paths:
 
-- **Option 1 (Cơ bản):** Deploy website PHP lên Elastic Beanstalk, kết nối database RDS, mở port truy cập, kiểm thử website thực tế.
-- **Option 2 (Nâng cao):** Mở rộng hệ thống, tích hợp domain riêng (Route 53), SSL/HTTPS (ACM), tối ưu ảnh/file bằng S3+CloudFront, giám sát log và cảnh báo với CloudWatch.
+- **Option 1 (Basic):** Deploy the PHP website using Elastic Beanstalk, connect to an RDS database, open necessary ports, and test the website functionality.
+- **Option 2 (Advanced):** Extend the system with a custom domain (Route 53), enable SSL/HTTPS (via ACM), optimize images/files using S3 + CloudFront, and monitor logs and alerts using CloudWatch.
 
-**Khuyến nghị:** Nên thực hành Option 1 trước để hiểu cơ bản về cloud web hosting với AWS, sau đó chuyển sang Option 2 để tối ưu hóa, chuyên nghiệp hóa website của bạn.
+**Recommendation:** Start with Option 1 to understand the basics of cloud web hosting on AWS, then move to Option 2 to optimize and professionalize your website.
 
-![deploy-php-eb-landscape](/images/sơdo.png) 
+![deploy-php-eb-landscape](/images/sơdo.png)
 
 ---
 
-### Nội dung workshop
+### Workshop Content
 
- 1. [Giới thiệu tổng quan](1-introduce/)
- 2. [Chuẩn bị tài khoản, công cụ, kiến thức](2-prerequiste/)
- 3. [OPTION 1: Hệ thống Web PHP Cơ bản](3-Option_1/)
- 4. [OPTION 2: Hệ thống Web PHP Nâng cao](4.Option_2/)
- 5. [Kiểm thử website](5-Test-System/)
- 6. [Dọn dẹp tài nguyên AWS](6-cleanup/)
+ 1. [Overview & Introduction](1-introduce/)
+ 2. [Prepare AWS Account, Tools, and Knowledge](2-prerequiste/)
+ 3. [OPTION 1: Basic PHP Web System](3-Option_1/)
+ 4. [OPTION 2: Advanced PHP Web System](4.Option_2/)
+ 5. [Test the Website](5-Test-System/)
+ 6. [Clean Up AWS Resources](6-cleanup/)
 
 ---
 
 > **TIP:**  
-> Bạn có thể dùng bất kỳ source code PHP nào (PHP thuần, Laravel, CodeIgniter, WordPress...) cho workshop này.
+> You can use any PHP source code for this workshop (Vanilla PHP, Laravel, CodeIgniter, WordPress, etc.)

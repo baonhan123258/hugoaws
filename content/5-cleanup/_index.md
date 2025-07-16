@@ -6,64 +6,66 @@ chapter : false
 pre : " <b> 6. </b> "
 ---
 
-Sau khi hoàn thành workshop, bạn **cần dọn dẹp toàn bộ tài nguyên AWS** để tránh bị tính phí ngoài ý muốn.
+After completing the workshop, you **must clean up all AWS resources** to avoid unexpected charges.
 
 ---
 
-## 1. Xóa Elastic Beanstalk Environment
+## 1. Delete Elastic Beanstalk Environment
 
-- Vào **AWS Console** → **Elastic Beanstalk**
-- Chọn ứng dụng/môi trường vừa tạo (ví dụ: `web-ban-dien-thoai`)
-- Nhấn **Actions** → **Terminate environment**
-- Xác nhận xóa.  
-> **Lưu ý:** Quá trình này sẽ xóa toàn bộ EC2, Load Balancer, EBS volume của môi trường này.
-
----
-
-## 2. Xóa RDS Database (nếu có tạo)
-
-- Vào **AWS Console** → **RDS** → **Databases**
-- Chọn database vừa tạo (ví dụ: `shopdb`)
-- Nhấn **Actions** → **Delete**
-- Chọn "Create final snapshot" nếu muốn backup, hoặc bỏ chọn để xóa ngay.
-- Gõ tên xác nhận và nhấn **Delete me**.
+- Go to **AWS Console** → **Elastic Beanstalk**
+- Select the application/environment you created (e.g., `web-ban-dien-thoai`)
+- Click **Actions** → **Terminate environment**
+- Confirm the termination.  
+> **Note:** This will delete all associated EC2 instances, Load Balancers, and EBS volumes.
 
 ---
 
-## 3. Xóa S3 Buckets (nếu dùng để lưu ảnh/file)
+## 2. Delete RDS Database (if created)
 
-- Vào **AWS Console** → **S3**
-- Chọn các bucket đã tạo cho workshop (ví dụ: `media-yourshop-2025`)
-- Với mỗi bucket:
-    - **Empty bucket** → xác nhận xóa toàn bộ file bên trong
-    - **Delete bucket** → xác nhận để xóa bucket
-> **Lưu ý:** Bucket phải empty mới xóa được!
-
----
-
-## 4. Xóa CloudFront Distribution (nếu có dùng CDN)
-
-- Vào **CloudFront** → chọn distribution đã tạo
-- Nhấn **Disable** → chờ trạng thái "Deployed" → **Delete**
+- Go to **AWS Console** → **RDS** → **Databases**
+- Select the database you created (e.g., `shopdb`)
+- Click **Actions** → **Delete**
+- Choose "Create final snapshot" if you want to back it up, or uncheck it to delete immediately.
+- Type the database name to confirm, then click **Delete me**.
 
 ---
 
-## 5. Xóa Domain/Hosted Zone Route 53 (nếu đã mua domain trên AWS)
+## 3. Delete S3 Buckets (if used for storing images/files)
 
-- Vào **Route 53** → **Hosted Zones**
-- Chọn Hosted Zone, **Delete Record Set** từng record, sau đó **Delete Hosted Zone**
-- Nếu đã mua domain, có thể giữ lại nếu muốn sử dụng tiếp, hoặc hủy đăng ký.
-
----
-
-## 6. Xóa CloudWatch Logs và Alarm
-
-- Vào **CloudWatch** → **Log groups**
-- Xóa các log group liên quan tới Elastic Beanstalk, EC2 hoặc app
-- Vào **Alarms** → **Delete** các cảnh báo đã tạo
+- Go to **AWS Console** → **S3**
+- Select the buckets created for the workshop (e.g., `media-yourshop-2025`)
+- For each bucket:
+    - Click **Empty bucket** → confirm to delete all files inside
+    - Click **Delete bucket** → confirm to delete the bucket
+> **Note:** A bucket must be empty before it can be deleted!
 
 ---
 
-## 7. Xóa IAM Roles không còn dùng (tùy chọn)
+## 4. Delete CloudFront Distribution (if used as CDN)
 
-- Vào **IAM** → **Ro**
+- Go to **CloudFront** → select the distribution you created
+- Click **Disable** → wait until the status becomes "Deployed" → then click **Delete**
+
+---
+
+## 5. Delete Domain/Hosted Zone in Route 53 (if you purchased a domain on AWS)
+
+- Go to **Route 53** → **Hosted Zones**
+- Select the Hosted Zone, **Delete Record Set** for each record, then **Delete Hosted Zone**
+- If you purchased a domain, you may keep it for future use or choose to cancel the registration.
+
+---
+
+## 6. Delete CloudWatch Logs and Alarms
+
+- Go to **CloudWatch** → **Log groups**
+- Delete log groups related to Elastic Beanstalk, EC2, or the application
+- Go to **Alarms** → **Delete** the alarms you created
+
+---
+
+## 7. Delete Unused IAM Roles (optional)
+
+- Go to **IAM** → **Roles**
+- Identify and delete any roles created for the workshop that are no longer in use (e.g., for EC2, Elastic Beanstalk, or RDS)
+> **Note:** Be careful not to delete roles still in use by other services or applications.
